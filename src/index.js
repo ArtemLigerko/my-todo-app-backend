@@ -1,10 +1,13 @@
 import express from "express";
 import mongoose from "mongoose";
 import router from "./todo.routes.js";
+import * as dotenv from "dotenv";
 
-const PORT = 5001;
-const DB_URL =
-  "mongodb+srv://artlee:artlee@cluster0.q9rpoou.mongodb.net/?retryWrites=true&w=majority";
+dotenv.config();
+
+const PORT = process.env.PORT || 5001;
+const DB_URL = process.env.MONGO_URL;
+
 const app = express();
 
 app.use(express.json());
